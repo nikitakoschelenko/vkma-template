@@ -1,0 +1,19 @@
+.gradient {
+  margin: -7px -7px 7px -7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+}
+
+.gradient-title {
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.gradient-secondary {
+  margin-bottom: 24px; 
+  color: var(--text_secondary);
+}

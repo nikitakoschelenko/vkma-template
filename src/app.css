@@ -1,0 +1,43 @@
+* {
+  outline: none;
+}
+
+*:not(input):not(textarea),
+::after,
+::before {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Отступ 16 пикселей сверху */
+.SplitLayout__inner {
+  margin-top: 16px;
+}
+
+.vkui {
+  height: calc(100% - 16px);
+}
+
+/* Цвета */
+:root,
+body {
+  /* Здесь можно установить свой цвет акцента */
+  /* --accent: #2688eb !important; */
+  
+  --header_tint: var(--accent) !important;
+  --header_tint_alternate: var(--header_tint) !important;
+  --tabbar_active_icon: var(--accent) !important;
+  --button_primary_background: var(--accent) !important;
+  --button_outline_border: var(--accent) !important;
+  --button_outline_foreground: var(--accent) !important;
+  --button_secondary_foreground: var(--accent) !important;
+  --field_error_background: none !important;
+  --checkbox_off: #b8c1cc;
+}
+
+body[scheme='space_gray'] {
+  --button_primary_foreground: #fff !important;
+  --button_secondary_foreground: #fff !important;
+}

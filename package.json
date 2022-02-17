@@ -1,0 +1,42 @@
+{
+  "name": "vkma-template",
+  "version": "1.0.0",
+  "description": "📍 Шаблон для мини-приложений",
+  "author": "Nikita Koshelenko <nikitakoschelenko@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --fix ./src/",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.18",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "@vitejs/plugin-legacy": "^1.7.1",
+    "@vitejs/plugin-react": "^1.2.0",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "prettier": "^2.5.1",
+    "typescript": "4.5.5",
+    "typescript-plugin-css-modules": "^3.4.0",
+    "vite": "2.8.2",
+    "vite-plugin-checker": "^0.4.2",
+    "vite-tsconfig-paths": "^3.4.0"
+  },
+  "dependencies": {
+    "@itznevikat/router": "^0.1.0-beta7",
+    "@vkontakte/icons": "^1.145.0",
+    "@vkontakte/vk-bridge": "npm:@mntm/painless-bridge@^2.0.0",
+    "@vkontakte/vkjs": "^0.22.2",
+    "@vkontakte/vkui": "^4.26.0",
+    "eruda": "^2.4.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}
