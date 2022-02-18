@@ -1,6 +1,7 @@
+import { type FC } from 'react';
 import { Placeholder } from '@vkontakte/vkui';
 
-export const VoidPlaceholder: React.FC = () => (
+export const VoidPlaceholder: FC = () => (
   <Placeholder
     icon={
       <img
@@ -14,7 +15,7 @@ export const VoidPlaceholder: React.FC = () => (
   </Placeholder>
 );
 
-export const ErrorPlaceholder: React.FC = () => (
+export const ErrorPlaceholder: FC = () => (
   <Placeholder
     icon={
       <img
