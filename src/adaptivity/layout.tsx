@@ -22,7 +22,7 @@ export type AdaptivityButton = {
 };
 
 type AdaptivityLayoutProps = SplitLayoutProps & {
-  buttons: AdaptivityButton[];
+  buttons?: AdaptivityButton[];
 };
 
 export const AdaptivityLayout: FC<AdaptivityLayoutProps> = ({
