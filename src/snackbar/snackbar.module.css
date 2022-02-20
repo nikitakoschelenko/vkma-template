@@ -1,0 +1,3 @@
+.snackbar-mobile {
+  margin-bottom: calc(var(--tabbar_height) + var(--safe-area-inset-bottom));
+}

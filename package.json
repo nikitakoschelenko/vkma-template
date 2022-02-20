@@ -32,7 +32,8 @@
     "vite-tsconfig-paths": "^3.4.0"
   },
   "dependencies": {
-    "@itznevikat/router": "0.1.0-beta9",
+    "@itznevikat/router": "0.1.0-beta10",
+    "@mntm/precoil": "^4.1.1",
     "@vkontakte/icons": "^1.145.0",
     "@vkontakte/vk-bridge": "npm:@mntm/painless-bridge@^2.0.0",
     "@vkontakte/vkjs": "^0.22.2",

@@ -1,22 +1,24 @@
 import { type FC } from 'react';
-import { type SnackbarProps, Snackbar } from '@vkontakte/vkui';
+import { useVKPlatform } from '@itznevikat/router';
+import { type SnackbarProps, Snackbar, Platform, VKCOM } from '@vkontakte/vkui';
 import {
   Icon20CancelCircleFillRed,
   Icon20CheckCircleFillGreen
 } from '@vkontakte/icons';
 
-import { useSnackbar } from './snackbar-context';
+import { setSnackbar } from './store';
 
-export const SuccessSnackbar: FC<Omit<SnackbarProps, 'onClose' | 'before'>> = ({
-  children,
-  ...rest
-}) => {
-  const { openSnackbar } = useSnackbar();
+import { snackbarMobile } from './snackbar.module.css';
+
+type BaseSnackbarProps = Omit<SnackbarProps, 'onClose'>;
+
+export const BaseSnackbar: FC<BaseSnackbarProps> = ({ children, ...rest }) => {
+  const platform: Platform = useVKPlatform();
 
   return (
     <Snackbar
-      onClose={() => openSnackbar(null)}
-      before={<Icon20CheckCircleFillGreen width={24} height={24} />}
+      className={platform !== VKCOM ? snackbarMobile : ''}
+      onClose={() => setSnackbar(null)}
       {...rest}
     >
       {children}
@@ -24,19 +26,23 @@ export const SuccessSnackbar: FC<Omit<SnackbarProps, 'onClose' | 'before'>> = ({
   );
 };
 
-export const ErrorSnackbar: FC<Omit<SnackbarProps, 'onClose' | 'before'>> = ({
+export const SuccessSnackbar: FC<BaseSnackbarProps> = ({
   children,
   ...rest
-}) => {
-  const { openSnackbar } = useSnackbar();
+}) => (
+  <BaseSnackbar
+    before={<Icon20CheckCircleFillGreen width={24} height={24} />}
+    {...rest}
+  >
+    {children}
+  </BaseSnackbar>
+);
 
-  return (
-    <Snackbar
-      onClose={() => openSnackbar(null)}
-      before={<Icon20CancelCircleFillRed width={24} height={24} />}
-      {...rest}
-    >
-      {children}
-    </Snackbar>
-  );
-};
+export const ErrorSnackbar: FC<BaseSnackbarProps> = ({ children, ...rest }) => (
+  <BaseSnackbar
+    before={<Icon20CancelCircleFillRed width={24} height={24} />}
+    {...rest}
+  >
+    {children}
+  </BaseSnackbar>
+);

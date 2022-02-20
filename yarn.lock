@@ -334,10 +334,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@itznevikat/router@0.1.0-beta9":
-  version "0.1.0-beta9"
-  resolved "https://registry.yarnpkg.com/@itznevikat/router/-/router-0.1.0-beta9.tgz#64fe816748c931f0306f117f6d999c9833b42e03"
-  integrity sha512-up7Jcer1Sen+lndENa5C/9C+NU57i8w2OJeFQRe6dBaea+hOcTbrmNL9hxaMlHnhKCNtF/2v+JiPMr8IFjb2/g==
+"@itznevikat/router@0.1.0-beta10":
+  version "0.1.0-beta10"
+  resolved "https://registry.yarnpkg.com/@itznevikat/router/-/router-0.1.0-beta10.tgz#3f5a39806e9228444df50d15b27fbd3987d15615"
+  integrity sha512-h0IIMqwO8gZ/Ftmt2XL9c+9zt+9/VcPcks1VqkIFNV9zHHCyUJwwVNCPTE+BRq/+xKTFYdXQjt2nNy2zhVbJjQ==
   dependencies:
     history "^5.2.0"
     react-children-utilities "^2.7.0"
@@ -359,6 +359,19 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
+
+"@mntm/precoil@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@mntm/precoil/-/precoil-4.1.1.tgz#9c74d3adcea1bd43572a447d0f1ba038a4126337"
+  integrity sha512-g/1kpyS86XkLzP/jeQSMkVJ6N5hwtMD+Zb/PcWbYTm9S8kVczD2sHy8AzlX1rYL8BkC2X/lx5ZprDvRaPskMkA==
+  dependencies:
+    "@mntm/shared" "^3.6.1"
+    mitt "^3.0.0"
+
+"@mntm/shared@^3.6.1":
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/@mntm/shared/-/shared-3.6.1.tgz#18d48fcd56bb4ac780f895cc28ff6f5f7abafd80"
+  integrity sha512-L4mTI0c3xAMB04c6O0YjlrBK/IdoN9tmYyQncenYoR+rRh2zKzLEf9jhQMnLLNFshFRehXYr9qN+RTjPbJF2dQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

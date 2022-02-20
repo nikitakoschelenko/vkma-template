@@ -1,2 +1,2 @@
-export * from './snackbar-context';
+export * from './store';
 export * from './snackbar';

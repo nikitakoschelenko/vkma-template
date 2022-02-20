@@ -2,7 +2,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import '@vkontakte/vkui/dist/unstable.css';
 import '@/app.css';
 
-import { type FC, useState } from 'react';
+import { type FC } from 'react';
 import {
   ConfigProvider,
   AdaptivityProvider,
@@ -14,12 +14,9 @@ import {
 import { useVKPlatform } from '@itznevikat/router';
 
 import { Layout } from '@/layout';
-import { SnackbarContext, SnackbarValue } from '@/snackbar';
 
 export const App: FC = () => {
   const platform: PlatformType = useVKPlatform();
-
-  const [snackbar, openSnackbar] = useState<SnackbarValue>(null);
 
   return (
     <ConfigProvider
@@ -30,9 +27,7 @@ export const App: FC = () => {
     >
       <AdaptivityProvider>
         <AppRoot>
-          <SnackbarContext.Provider value={{ snackbar, openSnackbar }}>
-            <Layout />
-          </SnackbarContext.Provider>
+          <Layout />
         </AppRoot>
       </AdaptivityProvider>
     </ConfigProvider>

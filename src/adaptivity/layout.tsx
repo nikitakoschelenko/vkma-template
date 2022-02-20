@@ -1,4 +1,5 @@
 import { type ReactNode, type FC } from 'react';
+import { useAtomValue } from '@mntm/precoil';
 import { Match, Epic, Root, useVKPlatform } from '@itznevikat/router';
 import {
   type SplitLayoutProps,
@@ -9,11 +10,11 @@ import {
   VKCOM
 } from '@vkontakte/vkui';
 
-import styles from './layout.module.css';
-
-import { useSnackbar } from '@/snackbar';
+import { snackbarAtom, SnackbarValue } from '@/snackbar';
 import { AdaptivitySidebar } from './sidebar';
 import { AdaptivityTabbar } from './tabbar';
+
+import { layout } from './layout.module.css';
 
 export type AdaptivityButton = {
   story: string;
@@ -31,14 +32,13 @@ export const AdaptivityLayout: FC<AdaptivityLayoutProps> = ({
   ...rest
 }) => {
   const platform: Platform = useVKPlatform();
-
-  const { snackbar } = useSnackbar();
+  const snackbar: SnackbarValue = useAtomValue(snackbarAtom);
 
   return (
     <Match initialURL="/" fallbackURL="/404">
       <SplitLayout
         header={platform !== VKCOM && <PanelHeader separator={false} />}
-        className={styles.layout}
+        className={layout}
         {...rest}
       >
         <SplitCol

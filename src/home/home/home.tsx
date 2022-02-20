@@ -1,4 +1,6 @@
-import { useEffect, useState, type FC } from 'react';
+import { type FC, useEffect } from 'react';
+import { useAtomState } from '@mntm/precoil';
+import { send } from '@vkontakte/vk-bridge';
 import { block, push, replace, useActionRef } from '@itznevikat/router';
 import {
   Avatar,
@@ -24,20 +26,20 @@ import {
   Icon28WarningTriangleOutline
 } from '@vkontakte/icons';
 
-import styles from './home.module.css';
+import { ErrorSnackbar, SuccessSnackbar, setSnackbar } from '@/snackbar';
 
-import { ErrorSnackbar, SuccessSnackbar, useSnackbar } from '@/snackbar';
-import { send, UserInfo } from '@vkontakte/vk-bridge';
+import { gradient, gradientTitle, gradientSecondary } from './home.module.css';
+
+import { userAtom } from './store';
 
 export const Home: FC<NavIdProps> = ({ nav }) => {
-  const { openSnackbar } = useSnackbar();
   const { setActionRefHandler } = useActionRef(() =>
     push('/?popout=test-action-sheet')
   );
 
-  const [userInfo, setUserInfo] = useState<UserInfo>();
+  const [user, setUser] = useAtomState(userAtom);
   useEffect(() => {
-    send('VKWebAppGetUserInfo').then((value) => setUserInfo(value));
+    send('VKWebAppGetUserInfo').then((value) => setUser(value));
   }, []);
 
   const openScreenSpinner = async (): Promise<void> => {
@@ -58,13 +60,13 @@ export const Home: FC<NavIdProps> = ({ nav }) => {
       <PanelHeader>Главная</PanelHeader>
 
       <Group>
-        <Gradient className={styles.gradient}>
-          <Avatar src={userInfo?.photo_100} size={96} />
-          <Title className={styles.gradientTitle} level="2" weight="semibold">
-            {!userInfo && 'Загрузка...'}
-            {userInfo?.first_name} {userInfo?.last_name}
+        <Gradient className={gradient}>
+          <Avatar src={user?.photo_100} size={96} />
+          <Title className={gradientTitle} level="2" weight="semibold">
+            {!user && 'Загрузка...'}
+            {user?.first_name} {user?.last_name}
           </Title>
-          <Text weight="regular" className={styles.gradientSecondary}>
+          <Text weight="regular" className={gradientSecondary}>
             Пользователь
           </Text>
         </Gradient>
@@ -132,7 +134,7 @@ export const Home: FC<NavIdProps> = ({ nav }) => {
         <SimpleCell
           before={<Icon28CheckCircleOutline />}
           onClick={() =>
-            openSnackbar(<SuccessSnackbar>Произошёл успех</SuccessSnackbar>)
+            setSnackbar(<SuccessSnackbar>Произошёл успех</SuccessSnackbar>)
           }
         >
           Показать добрый снекбар
@@ -141,7 +143,7 @@ export const Home: FC<NavIdProps> = ({ nav }) => {
         <SimpleCell
           before={<Icon28CancelCircleOutline />}
           onClick={() =>
-            openSnackbar(<ErrorSnackbar>Произошла ошибка</ErrorSnackbar>)
+            setSnackbar(<ErrorSnackbar>Произошла ошибка</ErrorSnackbar>)
           }
         >
           Показать злой снекбар
