@@ -1,7 +1,13 @@
 import { type FC, useEffect } from 'react';
 import { useAtomState } from '@mntm/precoil';
 import { send } from '@vkontakte/vk-bridge';
-import { block, push, replace, useActionRef } from '@itznevikat/router';
+import {
+  block,
+  push,
+  replace,
+  useActionRef,
+  useVKPlatform
+} from '@itznevikat/router';
 import {
   Avatar,
   Gradient,
@@ -9,10 +15,13 @@ import {
   NavIdProps,
   Panel,
   PanelHeader,
+  Platform,
   SimpleCell,
   Text,
-  Title
+  Title,
+  VKCOM
 } from '@vkontakte/vkui';
+import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';
 import {
   Icon24Spinner,
   Icon28ArticleOutline,
@@ -28,11 +37,18 @@ import {
 
 import { ErrorSnackbar, SuccessSnackbar, setSnackbar } from '@/snackbar';
 
-import { gradient, gradientTitle, gradientSecondary } from './home.module.css';
+import {
+  gradient,
+  gradientTitle,
+  gradientSecondary,
+  gradientDesktop
+} from './home.module.css';
 
 import { userAtom } from './store';
 
 export const Home: FC<NavIdProps> = ({ nav }) => {
+  const platform: Platform = useVKPlatform();
+
   const { setActionRefHandler } = useActionRef(() =>
     push('/?popout=test-action-sheet')
   );
@@ -60,9 +76,14 @@ export const Home: FC<NavIdProps> = ({ nav }) => {
       <PanelHeader>Главная</PanelHeader>
 
       <Group>
-        <Gradient className={gradient}>
+        <Gradient
+          className={classNamesString(
+            gradient,
+            platform === VKCOM && gradientDesktop
+          )}
+        >
           <Avatar src={user?.photo_100} size={96} />
-          <Title className={gradientTitle} level="2" weight="semibold">
+          <Title className={gradientTitle} level="2" weight="2">
             {!user && 'Загрузка...'}
             {user?.first_name} {user?.last_name}
           </Title>

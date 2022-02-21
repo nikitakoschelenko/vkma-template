@@ -1,11 +1,15 @@
 .gradient {
-  margin: -7px -7px 7px -7px;
+  margin: -7px auto 7px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 32px;
+}
+
+.gradient-desktop {
+  margin: -7px -7px 7px -7px;
 }
 
 .gradient-title {

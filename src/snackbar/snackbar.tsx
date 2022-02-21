@@ -1,6 +1,7 @@
 import { type FC } from 'react';
 import { useVKPlatform } from '@itznevikat/router';
 import { type SnackbarProps, Snackbar, Platform, VKCOM } from '@vkontakte/vkui';
+import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';
 import {
   Icon20CancelCircleFillRed,
   Icon20CheckCircleFillGreen
@@ -17,7 +18,7 @@ export const BaseSnackbar: FC<BaseSnackbarProps> = ({ children, ...rest }) => {
 
   return (
     <Snackbar
-      className={platform !== VKCOM ? snackbarMobile : ''}
+      className={classNamesString(platform !== VKCOM && snackbarMobile)}
       onClose={() => setSnackbar(null)}
       {...rest}
     >
