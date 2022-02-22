@@ -1,5 +1,4 @@
 import '@vkontakte/vkui/dist/vkui.css';
-import '@vkontakte/vkui/dist/unstable.css';
 import '@/app.css';
 
 import { type FC } from 'react';
