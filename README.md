@@ -20,5 +20,5 @@ $ yarn dev
 $ yarn build && yarn serve
 ```
 
-## Авторство
-Copyright (c) 2022, `Nikita Koshelenko <nikitakoschelenko@gmail.com>`.
+## Лицензия
+[MIT](LICENSE)
