@@ -1,7 +1,6 @@
-import { type ReactElement, type FC } from 'react';
-import { ModalRoot, useParams, View } from '@itznevikat/router';
+import { type FC } from 'preact/compat';
+import { matchPopout, ModalRoot, useParams, View } from '@itznevikat/router';
 import { ScreenSpinner } from '@vkontakte/vkui';
-import { getNavId } from '@vkontakte/vkui/dist/lib/getNavId';
 import { Icon28HomeOutline, Icon28InfoOutline } from '@vkontakte/icons';
 
 import { AdaptivityLayout } from '@/adaptivity';
@@ -15,12 +14,6 @@ import {
   TestAlert
 } from '@/home';
 import { Info } from '@/info';
-
-function matchPopout(popout: string | null, elements: ReactElement[]) {
-  return popout
-    ? elements.find(({ props }) => getNavId(props) === popout)
-    : null;
-}
 
 export const Layout: FC = () => {
   const { popout = null } = useParams();

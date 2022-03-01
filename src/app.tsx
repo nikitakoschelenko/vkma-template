@@ -1,7 +1,7 @@
 import '@vkontakte/vkui/dist/vkui.css';
 import '@/app.css';
 
-import { type FC } from 'react';
+import { type FC } from 'preact/compat';
 import {
   ConfigProvider,
   AdaptivityProvider,

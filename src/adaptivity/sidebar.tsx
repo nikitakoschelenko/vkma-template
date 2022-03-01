@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { type FC } from 'preact/compat';
 import { push, useDeserialized } from '@itznevikat/router';
 import { Cell, Group, List, SplitCol } from '@vkontakte/vkui';
 

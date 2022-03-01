@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { type FC } from 'preact/compat';
 import { useVKPlatform } from '@itznevikat/router';
 import { type SnackbarProps, Snackbar, Platform, VKCOM } from '@vkontakte/vkui';
 import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';

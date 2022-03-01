@@ -1,11 +1,8 @@
-import { render } from 'react-dom';
+import { render } from 'preact/compat';
 
 import { App } from '@/app';
 import { initVKBridge } from '@/bridge';
 
 initVKBridge();
 
-render(<App />, document.getElementById('root'));
-
-// Динамический импорт, чтобы сборщик мог исключить Eruda в продакшн билде
-if (import.meta.env.VITE_ENABLE_ERUDA === 'true') import('./eruda');
+render(<App />, document.getElementById('root')!);

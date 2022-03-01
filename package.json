@@ -12,34 +12,30 @@
     "deploy": "vk-miniapps-deploy"
   },
   "devDependencies": {
-    "@types/node": "^17.0.19",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
+    "@preact/preset-vite": "^2.1.7",
+    "@types/node": "^17.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
     "@vitejs/plugin-legacy": "^1.7.1",
-    "@vitejs/plugin-react": "^1.2.0",
-    "@vkontakte/vk-miniapps-deploy": "^0.0.25",
-    "eslint": "^8.9.0",
+    "@vkontakte/vk-miniapps-deploy": "^0.0.26",
+    "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react": "^7.29.2",
     "prettier": "^2.5.1",
-    "typescript": "4.5.5",
+    "typescript": "4.6.2",
     "typescript-plugin-css-modules": "^3.4.0",
-    "vite": "2.8.4",
+    "vite": "2.8.5",
     "vite-plugin-checker": "^0.4.2",
-    "vite-tsconfig-paths": "^3.4.0"
+    "vite-tsconfig-paths": "^3.4.1"
   },
   "dependencies": {
-    "@itznevikat/router": "0.1.0-beta13",
+    "@itznevikat/router": "^0.1.0-beta16",
     "@mntm/precoil": "^4.1.1",
     "@vkontakte/icons": "^1.145.1",
     "@vkontakte/vk-bridge": "npm:@mntm/painless-bridge@^2.0.0",
     "@vkontakte/vkjs": "^0.22.2",
-    "@vkontakte/vkui": "^4.27.0",
-    "eruda": "^2.4.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "@vkontakte/vkui": "^4.27.1",
+    "preact": "^10.6.6"
   }
 }

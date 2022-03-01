@@ -1,4 +1,4 @@
-import { type ReactNode, type FC } from 'react';
+import { type JSX, type FC } from 'preact/compat';
 import { useAtomValue } from '@mntm/precoil';
 import { Match, Epic, Root, useVKPlatform } from '@itznevikat/router';
 import {
@@ -18,7 +18,7 @@ import { layout } from './layout.module.css';
 
 export type AdaptivityButton = {
   story: string;
-  icon: ReactNode;
+  icon: JSX.Element;
   text: string;
 };
 

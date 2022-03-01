@@ -1,7 +1,7 @@
-import { type ReactNode } from 'react';
+import { type JSX } from 'preact/compat';
 import { atom } from '@mntm/precoil';
 
-export type SnackbarValue = ReactNode | null;
+export type SnackbarValue = JSX.Element | null;
 
 export const snackbarAtom = atom<SnackbarValue>(null);
 
