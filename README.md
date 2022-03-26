@@ -29,5 +29,14 @@ $ yarn dev
 $ yarn build && yarn serve
 ```
 
+## Использование с **VK Tunnel**/**Ngrok**/etc.
+В `vite.config.ts` в объекте `server` убираем `https`, `host` и `proxy`, добавляем:
+```typescript
+hmr: {
+  clientPort: 443
+}
+```
+Подробнее - https://github.com/vitejs/vite/discussions/5399.
+
 ## Лицензия
 [MIT](LICENSE)

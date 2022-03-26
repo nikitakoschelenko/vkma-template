@@ -33,11 +33,11 @@ export default defineConfig({
   },
 
   server: {
-    port: 10888,
+    port: 9000,
     https: true,
     host: true,
     proxy: {
-      'https://localhost:10888': 'https://localhost:10888'
+      'https://localhost:6000': 'https://localhost:6000'
     }
   }
 });

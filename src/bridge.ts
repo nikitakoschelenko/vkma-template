@@ -1,27 +1,15 @@
-import {
-  type VKBridgeEvent,
-  isEmbedded,
-  send,
-  subscribe
-} from '@vkontakte/vk-bridge';
+import { isEmbedded, send } from '@vkontakte/vk-bridge';
 
 export const initVKBridge = (): void => {
+  if (!isEmbedded()) return;
+
   const root: HTMLElement = document.getElementById('root')!;
-  if (isEmbedded()) root.style.opacity = '0';
+  root.style.opacity = '0';
 
-  subscribe((e: VKBridgeEvent<any>) => {
-    switch (e.detail.type) {
-      case 'VKWebAppUpdateConfig': {
-        const scheme: string = e.detail.data.scheme || 'client_light';
-        document.body.setAttribute('scheme', scheme);
+  send('VKWebAppGetConfig').then(({ scheme }) => {
+    document.body.setAttribute('scheme', scheme as string);
 
-        root.style.opacity = '1';
-
-        break;
-      }
-      default:
-        return;
-    }
+    root.style.opacity = '1';
   });
   send('VKWebAppInit');
 };

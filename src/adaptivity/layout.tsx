@@ -1,6 +1,6 @@
 import { type JSX, type FC } from 'preact/compat';
 import { useAtomValue } from '@mntm/precoil';
-import { Match, Epic, Root, useVKPlatform } from '@itznevikat/router';
+import { Match, Epic, useVKPlatform } from '@itznevikat/router';
 import {
   type SplitLayoutProps,
   PanelHeader,
@@ -47,16 +47,15 @@ export const AdaptivityLayout: FC<AdaptivityLayoutProps> = ({
           width={platform === VKCOM ? '650px' : '100%'}
           maxWidth={platform === VKCOM ? '650px' : '100%'}
         >
-          {platform === VKCOM ? (
-            <Root nav="/">{children}</Root>
-          ) : (
-            <Epic
-              nav="/"
-              tabbar={buttons && <AdaptivityTabbar buttons={buttons} />}
-            >
-              {children}
-            </Epic>
-          )}
+          <Epic
+            nav="/"
+            tabbar={
+              platform !== VKCOM &&
+              buttons && <AdaptivityTabbar buttons={buttons} />
+            }
+          >
+            {children}
+          </Epic>
 
           {snackbar}
         </SplitCol>

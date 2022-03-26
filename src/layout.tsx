@@ -1,5 +1,5 @@
 import { type FC } from 'preact/compat';
-import { matchPopout, ModalRoot, useParams, View } from '@itznevikat/router';
+import { ModalRoot, View, useParams, matchPopout } from '@itznevikat/router';
 import { ScreenSpinner } from '@vkontakte/vkui';
 import { Icon28HomeOutline, Icon28InfoOutline } from '@vkontakte/icons';
 
