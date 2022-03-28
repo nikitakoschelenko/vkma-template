@@ -1,13 +1,7 @@
 import { type FC, useEffect } from 'preact/compat';
 import { useAtomState } from '@mntm/precoil';
 import { send } from '@vkontakte/vk-bridge';
-import {
-  block,
-  push,
-  replace,
-  useActionRef,
-  useVKPlatform
-} from '@itznevikat/router';
+import { block, push, replace, useActionRef } from '@itznevikat/router';
 import {
   Avatar,
   Gradient,
@@ -15,11 +9,11 @@ import {
   NavIdProps,
   Panel,
   PanelHeader,
-  Platform,
   SimpleCell,
   Text,
   Title,
-  VKCOM
+  ViewWidth,
+  useAdaptivity
 } from '@vkontakte/vkui';
 import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';
 import {
@@ -47,7 +41,9 @@ import {
 import { userAtom } from './store';
 
 export const Home: FC<NavIdProps> = ({ nav }) => {
-  const platform: Platform = useVKPlatform();
+  const { viewWidth } = useAdaptivity();
+
+  const desktop: boolean = viewWidth >= ViewWidth.SMALL_TABLET;
 
   const { setActionRefHandler } = useActionRef(() =>
     push('/?popout=test-action-sheet')
@@ -77,10 +73,7 @@ export const Home: FC<NavIdProps> = ({ nav }) => {
 
       <Group>
         <Gradient
-          className={classNamesString(
-            gradient,
-            platform === VKCOM && gradientDesktop
-          )}
+          className={classNamesString(gradient, desktop && gradientDesktop)}
         >
           <Avatar src={user?.photo_100} size={96} />
           <Title className={gradientTitle} level="2" weight="2">

@@ -1,6 +1,10 @@
 import { type FC } from 'preact/compat';
-import { useVKPlatform } from '@itznevikat/router';
-import { type SnackbarProps, Snackbar, Platform, VKCOM } from '@vkontakte/vkui';
+import {
+  type SnackbarProps,
+  Snackbar,
+  ViewWidth,
+  useAdaptivity
+} from '@vkontakte/vkui';
 import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';
 import {
   Icon20CancelCircleFillRed,
@@ -14,11 +18,13 @@ import { snackbarMobile } from './snackbar.module.css';
 type BaseSnackbarProps = Omit<SnackbarProps, 'onClose'>;
 
 export const BaseSnackbar: FC<BaseSnackbarProps> = ({ children, ...rest }) => {
-  const platform: Platform = useVKPlatform();
+  const { viewWidth } = useAdaptivity();
+
+  const desktop: boolean = viewWidth >= ViewWidth.SMALL_TABLET;
 
   return (
     <Snackbar
-      className={classNamesString(platform !== VKCOM && snackbarMobile)}
+      className={classNamesString(!desktop && snackbarMobile)}
       onClose={() => setSnackbar(null)}
       {...rest}
     >

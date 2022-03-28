@@ -336,10 +336,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@itznevikat/router@^0.1.0-beta20":
-  version "0.1.0-beta20"
-  resolved "https://registry.yarnpkg.com/@itznevikat/router/-/router-0.1.0-beta20.tgz#3f4bbf20a7073e5f02b1e708647effbbf9bf52e8"
-  integrity sha512-NeMiLSNoxCi9qkke2vMH38vuSXtOQNX8IXgOEy5r5mmeCzlg0IDDkfpSCdHc/5r+wic4C4SmQ1QQ4IXwss0yfg==
+"@itznevikat/router@^0.1.0-beta22":
+  version "0.1.0-beta22"
+  resolved "https://registry.yarnpkg.com/@itznevikat/router/-/router-0.1.0-beta22.tgz#32b8ba5fe158f2c786f6222031b743856fa97b99"
+  integrity sha512-mHcM4CbqlaGLk/6U4YiVe0ACl6l+bTT3eD41z047I6OKt+ZryOZsbWpZDfNpI1U4rab81odTAVrhPYBrlZEs9w==
   dependencies:
     history "^5.3.0"
     react-children-utilities "^2.7.0"

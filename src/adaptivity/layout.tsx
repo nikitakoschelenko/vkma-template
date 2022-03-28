@@ -1,13 +1,13 @@
 import { type JSX, type FC } from 'preact/compat';
 import { useAtomValue } from '@mntm/precoil';
-import { Match, Epic, useVKPlatform } from '@itznevikat/router';
+import { Match, Epic } from '@itznevikat/router';
 import {
   type SplitLayoutProps,
   PanelHeader,
-  Platform,
   SplitCol,
   SplitLayout,
-  VKCOM
+  useAdaptivity,
+  ViewWidth
 } from '@vkontakte/vkui';
 
 import { snackbarAtom, SnackbarValue } from '@/snackbar';
@@ -31,27 +31,28 @@ export const AdaptivityLayout: FC<AdaptivityLayoutProps> = ({
   buttons,
   ...rest
 }) => {
-  const platform: Platform = useVKPlatform();
+  const { viewWidth } = useAdaptivity();
+
   const snackbar: SnackbarValue = useAtomValue(snackbarAtom);
+  const desktop: boolean = viewWidth >= ViewWidth.SMALL_TABLET;
 
   return (
     <Match initialURL="/" fallbackURL="/404">
       <SplitLayout
-        header={platform !== VKCOM && <PanelHeader separator={false} />}
+        header={!desktop && <PanelHeader separator={false} />}
         className={layout}
         {...rest}
       >
         <SplitCol
-          spaced={platform === VKCOM}
-          animate={platform !== VKCOM}
-          width={platform === VKCOM ? '650px' : '100%'}
-          maxWidth={platform === VKCOM ? '650px' : '100%'}
+          spaced={desktop}
+          animate={!desktop}
+          width={desktop ? '650px' : '100%'}
+          maxWidth={desktop ? '650px' : '100%'}
         >
           <Epic
             nav="/"
             tabbar={
-              platform !== VKCOM &&
-              buttons && <AdaptivityTabbar buttons={buttons} />
+              !desktop && buttons && <AdaptivityTabbar buttons={buttons} />
             }
           >
             {children}
@@ -60,9 +61,7 @@ export const AdaptivityLayout: FC<AdaptivityLayoutProps> = ({
           {snackbar}
         </SplitCol>
 
-        {platform === VKCOM && buttons && (
-          <AdaptivitySidebar buttons={buttons} />
-        )}
+        {desktop && buttons && <AdaptivitySidebar buttons={buttons} />}
       </SplitLayout>
     </Match>
   );
