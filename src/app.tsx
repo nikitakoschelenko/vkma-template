@@ -54,7 +54,7 @@ export const App: FC = () => {
 
     window.addEventListener('resize', onResize, false);
     return () => window.removeEventListener('resize', onResize, false);
-  }, [window.innerWidth]);
+  }, []);
 
   return (
     <ConfigProvider
