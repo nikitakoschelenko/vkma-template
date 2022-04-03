@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'preact/compat';
+import { type FC, useEffect } from 'react';
 import { useAtomState } from '@mntm/precoil';
 import { send } from '@vkontakte/vk-bridge';
 import { block, push, replace, useActionRef } from '@itznevikat/router';

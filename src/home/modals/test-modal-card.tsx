@@ -1,4 +1,4 @@
-import { type FC } from 'preact/compat';
+import { type FC } from 'react';
 import { back } from '@itznevikat/router';
 import { Button, ModalCard, NavIdProps } from '@vkontakte/vkui';
 import { Icon56GhostOutline } from '@vkontakte/icons';

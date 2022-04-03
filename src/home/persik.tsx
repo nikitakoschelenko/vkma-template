@@ -1,4 +1,4 @@
-import { type FC } from 'preact/compat';
+import { type FC } from 'react';
 import {
   Div,
   Group,

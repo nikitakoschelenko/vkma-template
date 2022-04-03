@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite';
 
-import preact from '@preact/preset-vite';
+import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 import paths from 'vite-tsconfig-paths';
 import checker from 'vite-plugin-checker';
 
 export default defineConfig({
   plugins: [
-    preact(),
+    react(),
     legacy({
       targets: ['defaults', 'not IE 11']
     }),
@@ -28,16 +28,12 @@ export default defineConfig({
     }
   },
 
-  optimizeDeps: {
-    include: ['preact/debug']
-  },
-
   server: {
     port: 9000,
     https: true,
     host: true,
     proxy: {
-      'https://localhost:6000': 'https://localhost:6000'
+      'https://localhost:9000': 'https://localhost:9000'
     }
   }
 });

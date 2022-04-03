@@ -1,4 +1,4 @@
-import { type JSX, type FC } from 'preact/compat';
+import { type FC } from 'react';
 import { useAtomValue } from '@mntm/precoil';
 import { Match, Epic } from '@itznevikat/router';
 import {

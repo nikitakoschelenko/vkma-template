@@ -1,4 +1,3 @@
-import { type JSX } from 'preact/compat';
 import { atom } from '@mntm/precoil';
 
 export type SnackbarValue = JSX.Element | null;

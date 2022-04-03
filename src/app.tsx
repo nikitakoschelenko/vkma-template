@@ -1,7 +1,7 @@
 import '@vkontakte/vkui/dist/vkui.css';
 import '@/app.css';
 
-import { type FC, useState, useEffect } from 'preact/compat';
+import { type FC, useState, useEffect } from 'react';
 import { send, subscribe } from '@vkontakte/vk-bridge';
 import {
   ConfigProvider,

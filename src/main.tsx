@@ -1,5 +1,6 @@
-import { render } from 'preact/compat';
+import { type Root, createRoot } from 'react-dom/client';
 
 import { App } from '@/app';
 
-render(<App />, document.getElementById('root')!);
+const root: Root = createRoot(document.getElementById('root')!);
+root.render(<App />);
