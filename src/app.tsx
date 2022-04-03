@@ -1,6 +1,3 @@
-import '@vkontakte/vkui/dist/vkui.css';
-import '@/app.css';
-
 import { type FC, useState, useEffect } from 'react';
 import { send, subscribe } from '@vkontakte/vk-bridge';
 import {
@@ -16,6 +13,9 @@ import {
 import { SMALL_TABLET_SIZE } from '@vkontakte/vkui/dist/components/AdaptivityProvider/AdaptivityProvider';
 
 import { Layout } from '@/layout';
+
+import '@vkontakte/vkui/dist/vkui.css';
+import '@/app.css';
 
 export const App: FC = () => {
   const [platform, setPlatform] = useState<Platform>(getPlatform);
