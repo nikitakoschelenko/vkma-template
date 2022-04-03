@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="https://preactjs.com/" target="blank"><img src="https://raw.githubusercontent.com/preactjs/preact/8b0bcc927995c188eca83cba30fbc83491cc0b2f/logo.svg" width="320" alt="Preact Logo" /></a>
+  <a href="https://reactjs.org/" target="blank"><img src="https://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark-700x235.png" width="320" alt="React Logo" /></a>
 </p>
-<p align="center">Fast 3kB alternative to React with the same modern API</p>
+<p align="center">A <a href="https://javascript.com" target="_blank">JavaScript</a> library for building user interfaces.</p>
 
 ## Описание
 📍 Шаблон для мини-приложений.
 
-- **⚛️ Preact**. Легковесная альтернатива React.
+- **⚛️ React 18**. Поддержка конкурентного рендеринга и Suspense.
 - **⚡️ Vite**. Быстрый и оптимизированный сборщик.
 - **❄️ Typescript**. Строгая типизация.
 - **🎯 CSS Modules**. Удобное использование CSS.
