@@ -65,7 +65,7 @@ export const App: FC = () => {
       }
     >
       <AdaptivityProvider>
-        <AppRoot>
+        <AppRoot noLegacyClasses>
           <Layout />
         </AppRoot>
       </AdaptivityProvider>
