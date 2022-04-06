@@ -1,15 +1,16 @@
-import { type FC } from 'react';
-import {
-  type SnackbarProps,
-  Snackbar,
-  ViewWidth,
-  useAdaptivity
-} from '@vkontakte/vkui';
-import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';
+import { FC } from 'react';
+
 import {
   Icon20CancelCircleFillRed,
   Icon20CheckCircleFillGreen
 } from '@vkontakte/icons';
+import {
+  Snackbar,
+  SnackbarProps,
+  ViewWidth,
+  useAdaptivity
+} from '@vkontakte/vkui';
+import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';
 
 import { setSnackbar } from './store';
 

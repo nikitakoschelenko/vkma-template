@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
 
-import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
-import paths from 'vite-tsconfig-paths';
+import react from '@vitejs/plugin-react';
 import checker from 'vite-plugin-checker';
+import paths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   plugins: [
@@ -11,11 +11,11 @@ export default defineConfig({
     legacy({
       targets: ['defaults', 'not IE 11']
     }),
-    paths(),
     checker({
       typescript: true,
       overlay: false
-    })
+    }),
+    paths()
   ],
 
   build: {

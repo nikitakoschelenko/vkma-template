@@ -1,4 +1,5 @@
-import { type FC } from 'react';
+import { FC } from 'react';
+
 import { back, useActionRef } from '@itznevikat/router';
 import { ActionSheet, ActionSheetItem, NavIdProps } from '@vkontakte/vkui';
 

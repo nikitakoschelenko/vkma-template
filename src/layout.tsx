@@ -1,11 +1,12 @@
-import { type FC } from 'react';
-import { ModalRoot, View, useParams, matchPopout } from '@itznevikat/router';
-import { ScreenSpinner } from '@vkontakte/vkui';
+import { FC } from 'react';
+
+import { ModalRoot, View, matchPopout, useParams } from '@itznevikat/router';
 import { Icon28HomeOutline, Icon28InfoOutline } from '@vkontakte/icons';
+import { ScreenSpinner } from '@vkontakte/vkui';
 
 import { AdaptivityLayout } from '@/components';
-import { Home, Info, Persik, Components, Fallback } from '@/pages';
 import { TestModalCard } from '@/modals';
+import { Components, Fallback, Home, Info, Persik } from '@/pages';
 import { TestActionSheet, TestAlert } from '@/popouts';
 
 export const Layout: FC = () => {

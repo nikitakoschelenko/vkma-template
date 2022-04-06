@@ -1,4 +1,5 @@
-import { type FC } from 'react';
+import { FC } from 'react';
+
 import { back } from '@itznevikat/router';
 import {
   Group,
@@ -8,7 +9,7 @@ import {
   PanelHeaderBack
 } from '@vkontakte/vkui';
 
-import { VoidPlaceholder, ErrorPlaceholder } from '@/components';
+import { ErrorPlaceholder, VoidPlaceholder } from '@/components';
 
 export const Components: FC<NavIdProps> = ({ nav }) => {
   return (

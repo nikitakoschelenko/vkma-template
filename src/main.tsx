@@ -1,4 +1,4 @@
-import { type Root, createRoot } from 'react-dom/client';
+import { Root, createRoot } from 'react-dom/client';
 
 import { App } from '@/app';
 

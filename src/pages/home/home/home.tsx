@@ -1,7 +1,20 @@
-import { type FC, useEffect } from 'react';
-import { useAtomState } from '@mntm/precoil';
-import { send } from '@vkontakte/vk-bridge';
+import { FC, useEffect } from 'react';
+
 import { block, push, replace, useActionRef } from '@itznevikat/router';
+import { useAtomState } from '@mntm/precoil';
+import {
+  Icon24Spinner,
+  Icon28ArticleOutline,
+  Icon28CancelCircleOutline,
+  Icon28CheckCircleOutline,
+  Icon28ChevronRightOutline,
+  Icon28CompassOutline,
+  Icon28ErrorOutline,
+  Icon28GhostOutline,
+  Icon28PawOutline,
+  Icon28WarningTriangleOutline
+} from '@vkontakte/icons';
+import { send } from '@vkontakte/vk-bridge';
 import {
   Avatar,
   Gradient,
@@ -16,27 +29,16 @@ import {
   useAdaptivity
 } from '@vkontakte/vkui';
 import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';
-import {
-  Icon24Spinner,
-  Icon28ArticleOutline,
-  Icon28CancelCircleOutline,
-  Icon28CheckCircleOutline,
-  Icon28ChevronRightOutline,
-  Icon28CompassOutline,
-  Icon28ErrorOutline,
-  Icon28GhostOutline,
-  Icon28PawOutline,
-  Icon28WarningTriangleOutline
-} from '@vkontakte/icons';
 
 import { ErrorSnackbar, SuccessSnackbar, setSnackbar } from '@/components';
+
 import { userAtom } from './store';
 
 import {
   gradient,
-  gradientTitle,
+  gradientDesktop,
   gradientSecondary,
-  gradientDesktop
+  gradientTitle
 } from './home.module.css';
 
 export const Home: FC<NavIdProps> = ({ nav }) => {

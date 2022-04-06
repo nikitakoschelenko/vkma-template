@@ -1,16 +1,18 @@
-import { type FC } from 'react';
+import { FC } from 'react';
+
+import { Epic, Match } from '@itznevikat/router';
 import { useAtomValue } from '@mntm/precoil';
-import { Match, Epic } from '@itznevikat/router';
 import {
-  type SplitLayoutProps,
   PanelHeader,
   SplitCol,
   SplitLayout,
-  useAdaptivity,
-  ViewWidth
+  SplitLayoutProps,
+  ViewWidth,
+  useAdaptivity
 } from '@vkontakte/vkui';
 
-import { snackbarAtom, SnackbarValue } from '@/components/snackbar';
+import { SnackbarValue, snackbarAtom } from '@/components/snackbar';
+
 import { AdaptivitySidebar } from './sidebar';
 import { AdaptivityTabbar } from './tabbar';
 

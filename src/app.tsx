@@ -1,21 +1,22 @@
-import { type FC, useState, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
+
 import { send, subscribe } from '@vkontakte/vk-bridge';
 import {
-  ConfigProvider,
   AdaptivityProvider,
   AppRoot,
-  WebviewType,
-  Platform,
   Appearance,
-  platform,
-  Scheme
+  ConfigProvider,
+  Platform,
+  Scheme,
+  WebviewType,
+  platform
 } from '@vkontakte/vkui';
 import { SMALL_TABLET_SIZE } from '@vkontakte/vkui/dist/components/AdaptivityProvider/AdaptivityProvider';
 
 import { Layout } from '@/layout';
 
-import '@vkontakte/vkui/dist/vkui.css';
 import '@/app.css';
+import '@vkontakte/vkui/dist/vkui.css';
 
 export const App: FC = () => {
   const [platform, setPlatform] = useState<Platform>(getPlatform);

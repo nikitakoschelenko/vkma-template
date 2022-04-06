@@ -1,4 +1,5 @@
-import { type FC } from 'react';
+import { FC } from 'react';
+
 import { push, useDeserialized } from '@itznevikat/router';
 import { Tabbar, TabbarItem } from '@vkontakte/vkui';
 

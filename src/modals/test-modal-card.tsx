@@ -1,7 +1,8 @@
-import { type FC } from 'react';
+import { FC } from 'react';
+
 import { back } from '@itznevikat/router';
-import { Button, ModalCard, NavIdProps } from '@vkontakte/vkui';
 import { Icon56GhostOutline } from '@vkontakte/icons';
+import { Button, ModalCard, NavIdProps } from '@vkontakte/vkui';
 
 export const TestModalCard: FC<NavIdProps> = ({ nav }) => {
   return (
