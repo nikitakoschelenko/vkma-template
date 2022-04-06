@@ -10,7 +10,7 @@ import {
   ViewWidth
 } from '@vkontakte/vkui';
 
-import { snackbarAtom, SnackbarValue } from '@/snackbar';
+import { snackbarAtom, SnackbarValue } from '@/components/snackbar';
 import { AdaptivitySidebar } from './sidebar';
 import { AdaptivityTabbar } from './tabbar';
 

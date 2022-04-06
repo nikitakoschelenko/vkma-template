@@ -1,4 +1,5 @@
 import { type FC } from 'react';
+import { back } from '@itznevikat/router';
 import {
   Div,
   Group,
@@ -7,8 +8,6 @@ import {
   PanelHeader,
   PanelHeaderBack
 } from '@vkontakte/vkui';
-
-import { back } from '@itznevikat/router';
 
 export const Persik: FC<NavIdProps> = ({ nav }) => {
   return (

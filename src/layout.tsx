@@ -3,17 +3,10 @@ import { ModalRoot, View, useParams, matchPopout } from '@itznevikat/router';
 import { ScreenSpinner } from '@vkontakte/vkui';
 import { Icon28HomeOutline, Icon28InfoOutline } from '@vkontakte/icons';
 
-import { AdaptivityLayout } from '@/adaptivity';
-import {
-  Home,
-  Persik,
-  Components,
-  Fallback,
-  TestModalCard,
-  TestActionSheet,
-  TestAlert
-} from '@/home';
-import { Info } from '@/info';
+import { AdaptivityLayout } from '@/components';
+import { Home, Info, Persik, Components, Fallback } from '@/pages';
+import { TestModalCard } from '@/modals';
+import { TestActionSheet, TestAlert } from '@/popouts';
 
 export const Layout: FC = () => {
   const { popout = null } = useParams();

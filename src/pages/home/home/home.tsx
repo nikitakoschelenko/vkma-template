@@ -29,7 +29,8 @@ import {
   Icon28WarningTriangleOutline
 } from '@vkontakte/icons';
 
-import { ErrorSnackbar, SuccessSnackbar, setSnackbar } from '@/snackbar';
+import { ErrorSnackbar, SuccessSnackbar, setSnackbar } from '@/components';
+import { userAtom } from './store';
 
 import {
   gradient,
@@ -37,8 +38,6 @@ import {
   gradientSecondary,
   gradientDesktop
 } from './home.module.css';
-
-import { userAtom } from './store';
 
 export const Home: FC<NavIdProps> = ({ nav }) => {
   const { viewWidth } = useAdaptivity();
