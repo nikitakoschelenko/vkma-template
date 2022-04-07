@@ -9,6 +9,7 @@ import { TestModalCard } from '@/modals';
 import { Components, Fallback, Home, Info, Persik } from '@/pages';
 import { TestActionSheet, TestAlert } from '@/popouts';
 
+/* eslint-disable react/jsx-key */
 export const Layout: FC = () => {
   const { popout = null } = useParams();
 
