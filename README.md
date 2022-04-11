@@ -32,14 +32,14 @@ $ yarn build && yarn serve
 ## ESLint & Prettier
 ### Отключение Prettier
 ```bash
-yarn remove @trivago/prettier-plugin-sort-imports eslint-config-prettier eslint-plugin-prettier prettier
+yarn remove eslint-config-prettier eslint-plugin-prettier prettier
 ```
-Удалить файл `.prettierrc` и убрать 11 строку в `.eslintrc.json`.
+Удалить файл `.prettierrc` и убрать строку `"plugin:prettier/recommended"` в `extends` файла `.eslintrc.json`.
 ### Отключение сортировки импортов
 ```bash
-yarn remove @trivago/prettier-plugin-sort-imports
+yarn remove eslint-import-resolver-typescript eslint-plugin-import
 ```
-Убрать 4-8 строки в файле `.prettierrc`.
+Убрать `"plugin:import/recommended"`, `"plugin:import/typescript"` в `extends`, объекты `import/resolver` в `settings`, `sort-imports` и `import/order` в `rules` файла `.eslintrc.json`.
 
 ## Использование с **VK Tunnel**/**Ngrok**/etc.
 В `vite.config.ts` в объекте `server` убираем `https`, `host` и `proxy`, добавляем:
