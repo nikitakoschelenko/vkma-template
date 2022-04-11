@@ -1,9 +1,4 @@
 {
   "singleQuote": true,
-  "trailingComma": "none",
-  "importOrder": ["^react$", "^vite$", "<THIRD_PARTY_MODULES>", "^[@]\/(?!.*css)(.*)$", "^[.]{2}\/(?!.*css)[^\/]*$", "^[.]{2}\/(?!.*css).*$", "^[.]\/(?!.*css)[^\/]*$", "^[.]\/(?!.*css).*$", ".*[.]css"],
-  "importOrderParserPlugins": ["typescript", "jsx"],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "importOrderGroupNamespaceSpecifiers": true
+  "trailingComma": "none"
 }
