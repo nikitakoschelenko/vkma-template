@@ -7,7 +7,6 @@ import {
   Appearance,
   ConfigProvider,
   Platform,
-  Scheme,
   WebviewType,
   platform
 } from '@vkontakte/vkui';
@@ -19,29 +18,16 @@ import '@/app.css';
 import '@vkontakte/vkui/dist/vkui.css';
 
 export const App: FC = () => {
-  const [platform, setPlatform] = useState<Platform>(getPlatform);
+  const [platform, setPlatform] = useState<Platform>(currentPlatform);
   const [appearance, setAppearance] = useState<Appearance>();
 
   useEffect(() => {
-    send('VKWebAppGetConfig').then(({ scheme }) => {
-      function updateAppearance(scheme: unknown): void {
-        const appearanceRec: Record<Scheme, Appearance> = {
-          bright_light: Appearance.LIGHT,
-          space_gray: Appearance.DARK,
-          client_light: Appearance.LIGHT,
-          client_dark: Appearance.DARK,
-          vkcom: Appearance.LIGHT,
-          vkcom_light: Appearance.LIGHT,
-          vkcom_dark: Appearance.DARK
-        };
-
-        setAppearance(appearanceRec[scheme as Scheme] ?? Appearance.LIGHT);
-      }
-      updateAppearance(scheme);
+    send('VKWebAppGetConfig').then(({ appearance }) => {
+      if (appearance) setAppearance(appearance as Appearance);
 
       subscribe(({ detail: { type, data } }) => {
-        if (type === 'VKWebAppUpdateConfig' && data.scheme)
-          updateAppearance(data.scheme);
+        if (type === 'VKWebAppUpdateConfig' && data.appearance)
+          setAppearance(data.appearance as Appearance);
       });
     });
 
@@ -50,7 +36,7 @@ export const App: FC = () => {
 
   useEffect(() => {
     function onResize(): void {
-      setPlatform(getPlatform);
+      setPlatform(currentPlatform);
     }
 
     window.addEventListener('resize', onResize, false);
@@ -74,7 +60,7 @@ export const App: FC = () => {
   );
 };
 
-function getPlatform(): Platform {
+function currentPlatform(): Platform {
   if (window.innerWidth >= SMALL_TABLET_SIZE) return Platform.VKCOM;
 
   return platform() as Platform;
