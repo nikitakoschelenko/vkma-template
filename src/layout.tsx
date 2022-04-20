@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import { ModalRoot, View, matchPopout, useParams } from '@itznevikat/router';
 import { Icon28HomeOutline, Icon28InfoOutline } from '@vkontakte/icons';
 import { ScreenSpinner } from '@vkontakte/vkui';

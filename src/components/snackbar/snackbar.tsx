@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import {
   Icon20CancelCircleFillRed,
   Icon20CheckCircleFillGreen
@@ -14,7 +13,7 @@ import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';
 
 import { setSnackbar } from './store';
 
-import { snackbarMobile } from './snackbar.module.css';
+import styles from './snackbar.module.css';
 
 type BaseSnackbarProps = Omit<SnackbarProps, 'onClose'>;
 
@@ -25,7 +24,7 @@ export const BaseSnackbar: FC<BaseSnackbarProps> = ({ children, ...rest }) => {
 
   return (
     <Snackbar
-      className={classNamesString(!desktop && snackbarMobile)}
+      className={classNamesString(!desktop && styles.snackbarMobile)}
       onClose={() => setSnackbar(null)}
       {...rest}
     >

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import { back } from '@itznevikat/router';
 import {
   Div,

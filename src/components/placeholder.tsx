@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import { Placeholder } from '@vkontakte/vkui';
 
 export const VoidPlaceholder: FC = () => (

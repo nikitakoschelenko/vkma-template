@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import { Icon28LinkOutline, Icon28QrCodeOutline } from '@vkontakte/icons';
 import {
   Group,

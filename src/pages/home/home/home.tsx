@@ -1,5 +1,4 @@
 import { FC, useEffect } from 'react';
-
 import { block, push, replace, useActionRef } from '@itznevikat/router';
 import { useAtomState } from '@mntm/precoil';
 import {
@@ -34,12 +33,7 @@ import { ErrorSnackbar, SuccessSnackbar, setSnackbar } from '@/components';
 
 import { userAtom } from './store';
 
-import {
-  gradient,
-  gradientDesktop,
-  gradientSecondary,
-  gradientTitle
-} from './home.module.css';
+import styles from './home.module.css';
 
 export const Home: FC<NavIdProps> = ({ nav }) => {
   const { viewWidth } = useAdaptivity();
@@ -74,14 +68,17 @@ export const Home: FC<NavIdProps> = ({ nav }) => {
 
       <Group>
         <Gradient
-          className={classNamesString(gradient, desktop && gradientDesktop)}
+          className={classNamesString(
+            styles.gradient,
+            desktop && styles.gradientDesktop
+          )}
         >
           <Avatar src={user?.photo_100} size={96} />
-          <Title className={gradientTitle} level="2" weight="2">
+          <Title className={styles.gradientTitle} level="2" weight="2">
             {!user && 'Загрузка...'}
             {user?.first_name} {user?.last_name}
           </Title>
-          <Text weight="regular" className={gradientSecondary}>
+          <Text weight="regular" className={styles.gradientSecondary}>
             Пользователь
           </Text>
         </Gradient>

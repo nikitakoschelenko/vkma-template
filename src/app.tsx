@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react';
-
 import { send, subscribe } from '@vkontakte/vk-bridge';
 import {
   AdaptivityProvider,

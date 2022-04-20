@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import { Epic, Match } from '@itznevikat/router';
 import { useAtomValue } from '@mntm/precoil';
 import {
@@ -16,7 +15,7 @@ import { SnackbarValue, snackbarAtom } from '@/components/snackbar';
 import { AdaptivitySidebar } from './sidebar';
 import { AdaptivityTabbar } from './tabbar';
 
-import { layout } from './layout.module.css';
+import styles from './layout.module.css';
 
 export type AdaptivityButton = {
   story: string;
@@ -42,7 +41,7 @@ export const AdaptivityLayout: FC<AdaptivityLayoutProps> = ({
     <Match initialURL="/" fallbackURL="/404">
       <SplitLayout
         header={!desktop && <PanelHeader separator={false} />}
-        className={layout}
+        className={styles.layout}
         {...rest}
       >
         <SplitCol

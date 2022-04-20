@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import { back } from '@itznevikat/router';
 import { Icon56GhostOutline } from '@vkontakte/icons';
 import { Button, ModalCard, NavIdProps } from '@vkontakte/vkui';
