@@ -25,8 +25,14 @@ export const App: FC = () => {
       if (appearance) setAppearance(appearance as Appearance);
 
       subscribe(({ detail: { type, data } }) => {
-        if (type === 'VKWebAppUpdateConfig' && data.appearance)
-          setAppearance(data.appearance as Appearance);
+        if (type === 'VKWebAppUpdateConfig') {
+          if (data.appearance) {
+            setAppearance(data.appearance as Appearance);
+          } else if (data.scheme) {
+            // Костыль для vk.com - https://github.com/VKCOM/vk-bridge/issues/299
+            document.body.setAttribute('scheme', data.scheme as string);
+          }
+        }
       });
     });
 
