@@ -21,18 +21,20 @@ export const App: FC = () => {
   const [appearance, setAppearance] = useState<Appearance>();
 
   useEffect(() => {
-    send('VKWebAppGetConfig').then(({ appearance }) => {
-      if (appearance) setAppearance(appearance as Appearance);
+    function updateAppearance(data: { appearance?: string; scheme?: string }) {
+      if (data.appearance) {
+        setAppearance(data.appearance as Appearance);
+      } else if (data.scheme) {
+        // https://github.com/VKCOM/vk-bridge/issues/299
+        document.body.setAttribute('scheme', data.scheme as string);
+      }
+    }
+
+    send('VKWebAppGetConfig').then((config) => {
+      updateAppearance(config);
 
       subscribe(({ detail: { type, data } }) => {
-        if (type === 'VKWebAppUpdateConfig') {
-          if (data.appearance) {
-            setAppearance(data.appearance as Appearance);
-          } else if (data.scheme) {
-            // Костыль для vk.com - https://github.com/VKCOM/vk-bridge/issues/299
-            document.body.setAttribute('scheme', data.scheme as string);
-          }
-        }
+        if (type === 'VKWebAppUpdateConfig') updateAppearance(data);
       });
     });
 
