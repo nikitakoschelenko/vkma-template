@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { send, subscribe } from '@vkontakte/vk-bridge';
+import { VKUpdateConfigData, send, subscribe } from '@vkontakte/vk-bridge';
 import {
   AdaptivityProvider,
   AppRoot,
@@ -21,20 +21,18 @@ export const App: FC = () => {
   const [appearance, setAppearance] = useState<Appearance>();
 
   useEffect(() => {
-    function updateAppearance(data: { appearance?: string; scheme?: string }) {
-      if (data.appearance) {
-        setAppearance(data.appearance as Appearance);
-      } else if (data.scheme) {
-        // https://github.com/VKCOM/vk-bridge/issues/299
-        document.body.setAttribute('scheme', data.scheme as string);
-      }
+    function updateConfig({
+      appearance
+    }: VKUpdateConfigData & { appearance?: Appearance }) {
+      if (appearance) setAppearance(appearance);
     }
 
     send('VKWebAppGetConfig').then((config) => {
-      updateAppearance(config);
+      updateConfig(config as VKUpdateConfigData);
 
       subscribe(({ detail: { type, data } }) => {
-        if (type === 'VKWebAppUpdateConfig') updateAppearance(data);
+        if (type === 'VKWebAppUpdateConfig')
+          updateConfig(data as VKUpdateConfigData);
       });
     });
 
