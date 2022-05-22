@@ -18,5 +18,5 @@
 }
 
 .vkui {
-  height: calc(100% - 16px);
+  height: calc(100% - 16px) !important;
 }
