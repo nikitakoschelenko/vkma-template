@@ -6,17 +6,14 @@
 *:not(input):not(textarea),
 ::after,
 ::before {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
 /* Отступ 16 пикселей сверху */
-.vkuiSplitLayout__inner {
+.vkuiSplitLayout--vkcom .vkuiSplitLayout__inner {
   margin-top: 16px;
 }
 
-.vkui {
+body[scheme*="vkcom"] {
   height: calc(100% - 16px) !important;
 }
