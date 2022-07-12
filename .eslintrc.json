@@ -20,6 +20,13 @@
     }
   },
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+
     "sort-imports": [
       "error",
       {
