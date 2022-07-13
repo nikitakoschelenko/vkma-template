@@ -7,6 +7,7 @@
 ::after,
 ::before {
   user-select: none;
+  -webkit-user-select: none;
 }
 
 /* Отступ 16 пикселей сверху */
