@@ -66,7 +66,11 @@ export const App: FC = () => {
 };
 
 function currentPlatform(): Platform {
-  if (window.innerWidth >= SMALL_TABLET_SIZE) return Platform.VKCOM;
+  if (
+    window.innerWidth >= SMALL_TABLET_SIZE &&
+    window.matchMedia('(orientation: landscape)').matches
+  )
+    return Platform.VKCOM;
 
   return platform() as Platform;
 }
