@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 
-import legacy from '@vitejs/plugin-legacy';
 import react from '@vitejs/plugin-react';
+import legacy from '@vitejs/plugin-legacy';
+import basicSsl from '@vitejs/plugin-basic-ssl';
 import checker from 'vite-plugin-checker';
 import paths from 'vite-tsconfig-paths';
 
@@ -11,6 +12,7 @@ export default defineConfig({
     legacy({
       targets: ['defaults', 'not IE 11']
     }),
+    basicSsl(),
     checker({
       typescript: true,
       overlay: false
@@ -31,9 +33,6 @@ export default defineConfig({
   server: {
     port: 9000,
     https: true,
-    host: true,
-    proxy: {
-      'https://localhost:9000': 'https://localhost:9000'
-    }
+    host: true
   }
 });
