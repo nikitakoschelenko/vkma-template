@@ -12,7 +12,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@itznevikat/router": "^0.1.0-beta26",
+    "@itznevikat/router": "0.1.0-beta26",
     "@mntm/precoil": "^5.0.0-rc.0",
     "@vkontakte/icons": "^1.190.0",
     "@vkontakte/vk-bridge": "npm:@mntm/painless-bridge@3.1.0",
@@ -35,6 +35,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "prettier": "^2.7.1",
+    "terser": "^5.15.0",
     "typescript": "^4.8.3",
     "typescript-plugin-css-modules": "^3.4.0",
     "vite": "^3.1.0",
