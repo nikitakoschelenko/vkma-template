@@ -9,6 +9,8 @@ import {
   PanelHeaderBack
 } from '@vkontakte/vkui';
 
+import styles from './persik.module.css';
+
 export const Persik: FC<NavIdProps> = ({ nav }) => {
   return (
     <Panel nav={nav}>
@@ -18,7 +20,7 @@ export const Persik: FC<NavIdProps> = ({ nav }) => {
 
       <Group>
         <Div>
-          <img src="/persik.png" />
+          <img className={styles.persik} src="/persik.png" />
         </Div>
       </Group>
     </Panel>
