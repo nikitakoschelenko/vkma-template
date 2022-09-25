@@ -1,5 +1,5 @@
-.gradient {
-  margin: -7px auto 7px;
+:global(.vkuiGradient).gradient {
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,16 +8,16 @@
   padding: 32px;
 }
 
-.gradient-desktop {
-  margin: -7px -7px 7px -7px;
+:global(.vkuiGradient).gradient-desktop {
+  margin: -7px -7px 0 -7px;
 }
 
-.gradient-title {
+:global(.vkuiTitle).gradient-title {
   margin-bottom: 8px;
   margin-top: 20px;
 }
 
-.gradient-secondary {
-  margin-bottom: 24px; 
+:global(.vkuiText).gradient-secondary {
+  margin-bottom: 24px;
   color: var(--text_secondary);
 }
