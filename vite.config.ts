@@ -3,7 +3,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 import basicSsl from '@vitejs/plugin-basic-ssl';
-import checker from 'vite-plugin-checker';
 import paths from 'vite-tsconfig-paths';
 
 export default defineConfig({
@@ -13,10 +12,6 @@ export default defineConfig({
       targets: ['defaults', 'not IE 11']
     }),
     basicSsl(),
-    checker({
-      typescript: true,
-      overlay: false
-    }),
     paths()
   ],
 
