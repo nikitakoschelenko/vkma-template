@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { back } from '@itznevikat/router';
-import { Alert, NavIdProps } from '@vkontakte/vkui';
+import { FC } from 'react'
+import { back } from '@itznevikat/router'
+import { Alert, NavIdProps } from '@vkontakte/vkui'
 
 export const TestAlert: FC<NavIdProps> = () => {
   return (
@@ -22,5 +22,5 @@ export const TestAlert: FC<NavIdProps> = () => {
       header="Подтверждение действия"
       text="Вы уверены, что вам стоило открывать это предупреждение?"
     />
-  );
-};
+  )
+}

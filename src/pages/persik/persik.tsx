@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { back } from '@itznevikat/router';
+import { FC } from 'react'
+import { back } from '@itznevikat/router'
 import {
   Div,
   Group,
@@ -7,9 +7,9 @@ import {
   Panel,
   PanelHeader,
   PanelHeaderBack
-} from '@vkontakte/vkui';
+} from '@vkontakte/vkui'
 
-import styles from './persik.module.css';
+import styles from './persik.module.css'
 
 export const Persik: FC<NavIdProps> = ({ nav }) => {
   return (
@@ -24,5 +24,5 @@ export const Persik: FC<NavIdProps> = ({ nav }) => {
         </Div>
       </Group>
     </Panel>
-  );
-};
+  )
+}

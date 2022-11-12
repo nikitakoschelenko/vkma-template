@@ -1,14 +1,14 @@
-import { FC } from 'react';
-import { back } from '@itznevikat/router';
+import { FC } from 'react'
+import { back } from '@itznevikat/router'
 import {
   Group,
   NavIdProps,
   Panel,
   PanelHeader,
   PanelHeaderBack
-} from '@vkontakte/vkui';
+} from '@vkontakte/vkui'
 
-import { VoidPlaceholder } from '@/components';
+import { VoidPlaceholder } from '@/components'
 
 export const Fallback: FC<NavIdProps> = ({ nav }) => {
   return (
@@ -19,5 +19,5 @@ export const Fallback: FC<NavIdProps> = ({ nav }) => {
         <VoidPlaceholder />
       </Group>
     </Panel>
-  );
-};
+  )
+}

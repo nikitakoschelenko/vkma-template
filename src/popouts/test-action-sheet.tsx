@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { back, useActionRef } from '@itznevikat/router';
-import { ActionSheet, ActionSheetItem, NavIdProps } from '@vkontakte/vkui';
+import { FC } from 'react'
+import { back, useActionRef } from '@itznevikat/router'
+import { ActionSheet, ActionSheetItem, NavIdProps } from '@vkontakte/vkui'
 
 export const TestActionSheet: FC<NavIdProps> = () => {
-  const { actionRef } = useActionRef();
+  const { actionRef } = useActionRef()
 
   return (
     <ActionSheet
@@ -21,5 +21,5 @@ export const TestActionSheet: FC<NavIdProps> = () => {
         Опасное действие
       </ActionSheetItem>
     </ActionSheet>
-  );
-};
+  )
+}

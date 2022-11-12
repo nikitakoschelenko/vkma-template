@@ -1,11 +1,11 @@
-import { FC } from 'react';
-import { Placeholder } from '@vkontakte/vkui';
+import { FC } from 'react'
+import { Placeholder } from '@vkontakte/vkui'
 
 export const VoidPlaceholder: FC = () => (
   <Placeholder icon={<img src="/ghost.png" width="56" />} header="Пустота">
     Здесь ничего нет
   </Placeholder>
-);
+)
 
 export const ErrorPlaceholder: FC = () => (
   <Placeholder
@@ -14,4 +14,4 @@ export const ErrorPlaceholder: FC = () => (
   >
     Пожалуйста, попробуйте ещё раз позже
   </Placeholder>
-);
+)

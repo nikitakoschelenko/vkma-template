@@ -1,2 +1,2 @@
-export * from './test-action-sheet';
-export * from './test-alert';
+export * from './test-action-sheet'
+export * from './test-alert'

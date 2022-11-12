@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@itznevikat/router": "0.1.0-beta28",
-    "@mntm/precoil": "^5.0.0-rc.0",
     "@vkontakte/icons": "^1.197.0",
     "@vkontakte/vk-bridge": "npm:@mntm/painless-bridge@3.1.0",
     "@vkontakte/vkjs": "^0.25.0",

@@ -1,6 +1,5 @@
-import { FC, useEffect } from 'react';
-import { block, push, replace, useActionRef } from '@itznevikat/router';
-import { useAtomState } from '@mntm/precoil';
+import { FC, useEffect } from 'react'
+import { block, push, replace, useActionRef } from '@itznevikat/router'
 import {
   Icon24Spinner,
   Icon28ArticleOutline,
@@ -12,8 +11,8 @@ import {
   Icon28GhostOutline,
   Icon28PawOutline,
   Icon28WarningTriangleOutline
-} from '@vkontakte/icons';
-import { send } from '@vkontakte/vk-bridge';
+} from '@vkontakte/icons'
+import { send } from '@vkontakte/vk-bridge'
 import {
   Avatar,
   Gradient,
@@ -26,41 +25,42 @@ import {
   Title,
   ViewWidth,
   useAdaptivity
-} from '@vkontakte/vkui';
-import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames';
+} from '@vkontakte/vkui'
+import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames'
 
-import { ErrorSnackbar, SuccessSnackbar, setSnackbar } from '@/components';
+import { ErrorSnackbar, SuccessSnackbar } from '@/components'
 
-import { userAtom } from './store';
-
-import styles from './home.module.css';
+import styles from './home.module.css'
+import { useSnackbar, useUser } from '../../hooks'
 
 export const Home: FC<NavIdProps> = ({ nav }) => {
-  const { viewWidth } = useAdaptivity();
+  const { viewWidth } = useAdaptivity()
 
-  const desktop: boolean = viewWidth >= ViewWidth.SMALL_TABLET;
+  const { user, setUser } = useUser()
+  const { setSnackbar } = useSnackbar()
+
+  const desktop: boolean = viewWidth >= ViewWidth.SMALL_TABLET
 
   const { setActionRefHandler } = useActionRef(() =>
     push('/?popout=test-action-sheet')
-  );
+  )
 
-  const [user, setUser] = useAtomState(userAtom);
   useEffect(() => {
-    send('VKWebAppGetUserInfo').then((value) => setUser(value));
-  }, []);
+    send('VKWebAppGetUserInfo').then((value) => setUser(value))
+  }, [])
 
   const openScreenSpinner = async (): Promise<void> => {
-    replace('/?popout=screen-spinner');
+    replace('/?popout=screen-spinner')
 
-    const unblock = block(() => void 0);
+    const unblock = block(() => void 0)
 
     // Загрузка данных
     setTimeout(() => {
       // Разблокировка
-      unblock();
-      replace('/');
-    }, 2000);
-  };
+      unblock()
+      replace('/')
+    }, 2000)
+  }
 
   return (
     <Panel nav={nav}>
@@ -162,5 +162,5 @@ export const Home: FC<NavIdProps> = ({ nav }) => {
         </SimpleCell>
       </Group>
     </Panel>
-  );
-};
+  )
+}

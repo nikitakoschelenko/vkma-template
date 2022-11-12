@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Icon28LinkOutline, Icon28QrCodeOutline } from '@vkontakte/icons';
+import { FC } from 'react'
+import { Icon28LinkOutline, Icon28QrCodeOutline } from '@vkontakte/icons'
 import {
   Group,
   Link,
@@ -7,7 +7,7 @@ import {
   Panel,
   PanelHeader,
   SimpleCell
-} from '@vkontakte/vkui';
+} from '@vkontakte/vkui'
 
 export const Info: FC<NavIdProps> = ({ nav }) => {
   return (
@@ -28,5 +28,5 @@ export const Info: FC<NavIdProps> = ({ nav }) => {
         </Link>
       </Group>
     </Panel>
-  );
-};
+  )
+}
