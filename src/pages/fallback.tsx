@@ -10,9 +10,9 @@ import {
 
 import { VoidPlaceholder } from '../components'
 
-export const Fallback: FC<NavIdProps> = ({ nav }) => {
+export const Fallback: FC<NavIdProps> = (props) => {
   return (
-    <Panel nav={nav}>
+    <Panel {...props}>
       <PanelHeader before={<PanelHeaderBack onClick={back} />}>404</PanelHeader>
 
       <Group>

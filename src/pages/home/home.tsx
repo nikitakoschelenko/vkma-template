@@ -33,7 +33,7 @@ import { ErrorSnackbar, SuccessSnackbar } from '../../components'
 import styles from './home.module.css'
 import { useSnackbar, useUser } from '../../hooks'
 
-export const Home: FC<NavIdProps> = ({ nav }) => {
+export const Home: FC<NavIdProps> = (props) => {
   const { viewWidth } = useAdaptivity()
 
   const { user, setUser } = useUser()
@@ -63,7 +63,7 @@ export const Home: FC<NavIdProps> = ({ nav }) => {
   }
 
   return (
-    <Panel nav={nav}>
+    <Panel {...props}>
       <PanelHeader>Главная</PanelHeader>
 
       <Group>

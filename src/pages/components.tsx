@@ -10,9 +10,9 @@ import {
 
 import { ErrorPlaceholder, VoidPlaceholder } from '../components'
 
-export const Components: FC<NavIdProps> = ({ nav }) => {
+export const Components: FC<NavIdProps> = (props) => {
   return (
-    <Panel nav={nav}>
+    <Panel {...props}>
       <PanelHeader before={<PanelHeaderBack onClick={back} />}>
         Компоненты
       </PanelHeader>

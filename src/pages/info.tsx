@@ -9,9 +9,9 @@ import {
   SimpleCell
 } from '@vkontakte/vkui'
 
-export const Info: FC<NavIdProps> = ({ nav }) => {
+export const Info: FC<NavIdProps> = (props) => {
   return (
-    <Panel nav={nav}>
+    <Panel {...props}>
       <PanelHeader>О приложении</PanelHeader>
 
       <Group>

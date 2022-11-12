@@ -11,9 +11,9 @@ import {
 
 import styles from './persik.module.css'
 
-export const Persik: FC<NavIdProps> = ({ nav }) => {
+export const Persik: FC<NavIdProps> = (props) => {
   return (
-    <Panel nav={nav}>
+    <Panel {...props}>
       <PanelHeader before={<PanelHeaderBack onClick={back} />}>
         Персик
       </PanelHeader>
