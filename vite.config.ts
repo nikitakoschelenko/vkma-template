@@ -1,9 +1,8 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
 
-import react from '@vitejs/plugin-react';
-import legacy from '@vitejs/plugin-legacy';
-import basicSsl from '@vitejs/plugin-basic-ssl';
-import paths from 'vite-tsconfig-paths';
+import react from '@vitejs/plugin-react'
+import legacy from '@vitejs/plugin-legacy'
+import basicSsl from '@vitejs/plugin-basic-ssl'
 
 export default defineConfig({
   plugins: [
@@ -11,8 +10,7 @@ export default defineConfig({
     legacy({
       targets: ['defaults', 'not IE 11']
     }),
-    basicSsl(),
-    paths()
+    basicSsl()
   ],
 
   build: {
@@ -29,4 +27,4 @@ export default defineConfig({
     https: true,
     host: true
   }
-});
+})

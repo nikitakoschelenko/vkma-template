@@ -28,7 +28,7 @@ import {
 } from '@vkontakte/vkui'
 import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames'
 
-import { ErrorSnackbar, SuccessSnackbar } from '@/components'
+import { ErrorSnackbar, SuccessSnackbar } from '../../components'
 
 import styles from './home.module.css'
 import { useSnackbar, useUser } from '../../hooks'

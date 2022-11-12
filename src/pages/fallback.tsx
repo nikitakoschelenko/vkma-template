@@ -8,12 +8,12 @@ import {
   PanelHeaderBack
 } from '@vkontakte/vkui'
 
-import { VoidPlaceholder } from '@/components'
+import { VoidPlaceholder } from '../components'
 
 export const Fallback: FC<NavIdProps> = ({ nav }) => {
   return (
     <Panel nav={nav}>
-      <PanelHeader left={<PanelHeaderBack onClick={back} />}>404</PanelHeader>
+      <PanelHeader before={<PanelHeaderBack onClick={back} />}>404</PanelHeader>
 
       <Group>
         <VoidPlaceholder />
