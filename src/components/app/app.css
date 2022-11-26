@@ -11,10 +11,10 @@
 }
 
 /* Отступ 16 пикселей сверху */
-body[scheme*="vkcom"] .vkuiSplitLayout__inner {
+body[scheme*='vkcom'] .vkuiSplitLayout__inner {
   margin-top: 16px;
 }
 
-body[scheme*="vkcom"] {
+body[scheme*='vkcom'] {
   height: calc(100% - 16px) !important;
 }
