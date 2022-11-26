@@ -1,16 +1,16 @@
 import { FC, useEffect, useState } from 'react'
 
-import { VKUpdateConfigData, send, subscribe } from '@vkontakte/vk-bridge'
+import { send, subscribe } from '@vkontakte/vk-bridge'
+import type { AppearanceType, VKUpdateConfigData } from '@vkontakte/vk-bridge'
 import {
   AdaptivityProvider,
   AppRoot,
-  Appearance,
   ConfigProvider,
   Platform,
   WebviewType
 } from '@vkontakte/vkui'
 
-import { Layout, SnackbarProvider, UserProvider } from "../";
+import { Layout, SnackbarProvider, UserProvider } from '../'
 import { currentPlatform } from '../../utils'
 
 import '@vkontakte/vkui/dist/vkui.css'
@@ -18,23 +18,21 @@ import './app.css'
 
 export const App: FC = () => {
   const [platform, setPlatform] = useState<Platform>(currentPlatform)
-  const [appearance, setAppearance] = useState<Appearance>()
+  const [appearance, setAppearance] = useState<AppearanceType>()
 
   useEffect(() => {
-    const updateConfig = ({
-      appearance
-    }: VKUpdateConfigData & { appearance?: Appearance }) => {
-      if (appearance) {
-        setAppearance(appearance)
+    const updateAppearance = (config: VKUpdateConfigData) => {
+      if (config) {
+        setAppearance(config.appearance)
       }
     }
 
     send('VKWebAppGetConfig').then((config) => {
-      updateConfig(config as VKUpdateConfigData)
+      updateAppearance(config as VKUpdateConfigData)
 
       subscribe(({ detail: { type, data } }) => {
         if (type === 'VKWebAppUpdateConfig') {
-          updateConfig(data as VKUpdateConfigData)
+          updateAppearance(data as VKUpdateConfigData)
         }
       })
     })
