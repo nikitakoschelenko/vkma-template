@@ -22,7 +22,7 @@ export const App: FC = () => {
 
   useEffect(() => {
     const updateAppearance = (config: VKUpdateConfigData) => {
-      if (config) {
+      if (config.appearance) {
         setAppearance(config.appearance)
       }
     }
