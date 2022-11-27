@@ -4,12 +4,7 @@ import {
   Icon20CancelCircleFillRed,
   Icon20CheckCircleFillGreen
 } from '@vkontakte/icons'
-import {
-  Snackbar,
-  SnackbarProps,
-  ViewWidth,
-  useAdaptivity
-} from '@vkontakte/vkui'
+import { Snackbar, SnackbarProps, VKCOM, usePlatform } from '@vkontakte/vkui'
 
 import { useSnackbar } from '../hooks'
 
@@ -19,15 +14,13 @@ export const ParentSnackbar: FC<ParentSnackbarProps> = ({
   children,
   ...rest
 }) => {
-  const { viewWidth } = useAdaptivity()
+  const platform = usePlatform()
   const { setSnackbar } = useSnackbar()
-
-  const desktop = viewWidth >= ViewWidth.SMALL_TABLET
 
   return (
     <Snackbar
       style={
-        !desktop
+        platform !== VKCOM
           ? {
               marginBottom:
                 'calc(var(--tabbar_height) + var(--safe-area-inset-bottom))'

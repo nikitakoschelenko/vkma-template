@@ -14,8 +14,8 @@ import {
   ScreenSpinner,
   SplitCol,
   SplitLayout,
-  ViewWidth,
-  useAdaptivity
+  VKCOM,
+  usePlatform
 } from '@vkontakte/vkui'
 
 import { Components, Fallback, Home, Info, Persik } from '../../pages'
@@ -39,16 +39,14 @@ const Nav: FC = () => (
 )
 
 export const Layout: FC = () => {
-  const { viewWidth } = useAdaptivity()
+  const platform = usePlatform()
   const { popout } = useParams()
   const { snackbar } = useSnackbar()
-
-  const desktop = viewWidth >= ViewWidth.SMALL_TABLET
 
   return (
     <Match fallbackURL="/404">
       <SplitLayout
-        header={!desktop && <PanelHeader separator={false} />}
+        header={platform !== VKCOM && <PanelHeader separator={false} />}
         modal={
           <ModalRoot>
             <TestModalCard nav="test-modal-card" />
@@ -65,15 +63,15 @@ export const Layout: FC = () => {
         }}
       >
         <SplitCol
-          spaced={desktop}
-          animate={!desktop}
-          width={desktop ? '650px' : '100%'}
-          maxWidth={desktop ? '650px' : '100%'}
+          spaced={platform === VKCOM}
+          animate={platform !== VKCOM}
+          width={platform === VKCOM ? '650px' : '100%'}
+          maxWidth={platform === VKCOM ? '650px' : '100%'}
         >
           <Epic
             nav="/"
             tabbar={
-              !desktop && (
+              platform !== VKCOM && (
                 <LayoutTabbar>
                   <Nav />
                 </LayoutTabbar>
@@ -96,7 +94,7 @@ export const Layout: FC = () => {
           {snackbar}
         </SplitCol>
 
-        {desktop && (
+        {platform === VKCOM && (
           <LayoutSidebar>
             <Nav />
           </LayoutSidebar>

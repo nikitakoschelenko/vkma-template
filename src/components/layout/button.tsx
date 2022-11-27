@@ -1,7 +1,7 @@
 import { FC, ReactNode, useCallback } from 'react'
 
 import { push, useDeserialized } from '@itznevikat/router'
-import { Cell, TabbarItem, ViewWidth, useAdaptivity } from '@vkontakte/vkui'
+import { Cell, TabbarItem, VKCOM, usePlatform } from '@vkontakte/vkui'
 
 type LayoutButtonProps = {
   story: string
@@ -14,10 +14,9 @@ export const LayoutButton: FC<LayoutButtonProps> = ({
   before,
   children
 }) => {
-  const { viewWidth } = useAdaptivity()
+  const platform = usePlatform()
   const { view, panel } = useDeserialized()
 
-  const desktop = viewWidth >= ViewWidth.SMALL_TABLET
   const selected = story === view
 
   const onClick = useCallback(() => {
@@ -37,7 +36,7 @@ export const LayoutButton: FC<LayoutButtonProps> = ({
     push(story)
   }, [view, story])
 
-  return desktop ? (
+  return platform === VKCOM ? (
     <Cell
       key={story}
       before={before}

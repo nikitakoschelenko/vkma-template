@@ -23,8 +23,8 @@ import {
   SimpleCell,
   Text,
   Title,
-  ViewWidth,
-  useAdaptivity
+  VKCOM,
+  usePlatform
 } from '@vkontakte/vkui'
 import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames'
 
@@ -34,12 +34,10 @@ import styles from './home.module.css'
 import { useSnackbar, useUser } from '../../hooks'
 
 export const Home: FC<NavIdProps> = (props) => {
-  const { viewWidth } = useAdaptivity()
+  const platform = usePlatform()
 
   const { user, setUser } = useUser()
   const { setSnackbar } = useSnackbar()
-
-  const desktop: boolean = viewWidth >= ViewWidth.SMALL_TABLET
 
   const { setActionRefHandler } = useActionRef(() =>
     push('/?popout=test-action-sheet')
@@ -70,7 +68,7 @@ export const Home: FC<NavIdProps> = (props) => {
         <Gradient
           className={classNamesString(
             styles.gradient,
-            desktop && styles.gradientDesktop
+            platform === VKCOM && styles.gradientDesktop
           )}
         >
           <Avatar src={user?.photo_100} size={96} />
