@@ -1,0 +1,8 @@
+.vkuiSplitLayout__inner {
+  justify-content: center;
+}
+
+/* Отступ 16 пикселей сверху, можно убрать по желанию */
+.vkuiSplitLayout__inner:has(.vkuiSplitCol + .vkuiSplitCol) > .vkuiSplitCol > * {
+  margin-top: 16px;
+}

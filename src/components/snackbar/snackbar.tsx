@@ -4,9 +4,11 @@ import {
   Icon20CancelCircleFillRed,
   Icon20CheckCircleFillGreen
 } from '@vkontakte/icons'
-import { Snackbar, SnackbarProps, VKCOM, usePlatform } from '@vkontakte/vkui'
+import { Snackbar, SnackbarProps } from '@vkontakte/vkui'
 
-import { useSnackbar } from '../hooks'
+import { useSnackbar } from '../../hooks'
+
+import './snackbar.css'
 
 type ParentSnackbarProps = Omit<SnackbarProps, 'onClose'>
 
@@ -14,22 +16,10 @@ export const ParentSnackbar: FC<ParentSnackbarProps> = ({
   children,
   ...rest
 }) => {
-  const platform = usePlatform()
   const { setSnackbar } = useSnackbar()
 
   return (
-    <Snackbar
-      style={
-        platform !== VKCOM
-          ? {
-              marginBottom:
-                'calc(var(--tabbar_height) + var(--safe-area-inset-bottom))'
-            }
-          : {}
-      }
-      onClose={() => setSnackbar(null)}
-      {...rest}
-    >
+    <Snackbar onClose={() => setSnackbar(null)} {...rest}>
       {children}
     </Snackbar>
   )

@@ -1,4 +1,5 @@
 import { FC } from 'react'
+
 import { Icon28LinkOutline, Icon28QrCodeOutline } from '@vkontakte/icons'
 import {
   Group,
@@ -18,6 +19,7 @@ export const Info: FC<NavIdProps> = (props) => {
         <Link
           target="_blank"
           href="https://github.com/ItzNeviKat/vkma-template"
+          style={{ textDecoration: 'none' }}
         >
           <SimpleCell
             before={<Icon28QrCodeOutline />}

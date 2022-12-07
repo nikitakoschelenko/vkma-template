@@ -1,4 +1,5 @@
 import { FC } from 'react'
+
 import { back } from '@itznevikat/router'
 import {
   Div,
@@ -9,7 +10,7 @@ import {
   PanelHeaderBack
 } from '@vkontakte/vkui'
 
-import styles from './persik.module.css'
+import './persik.css'
 
 export const Persik: FC<NavIdProps> = (props) => {
   return (
@@ -20,7 +21,7 @@ export const Persik: FC<NavIdProps> = (props) => {
 
       <Group>
         <Div>
-          <img className={styles.persik} src="/persik.png" />
+          <img className="Persik" src="/persik.png" />
         </Div>
       </Group>
     </Panel>

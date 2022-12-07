@@ -1,45 +1,26 @@
 import { FC, useEffect, useState } from 'react'
 
-import { send, subscribe } from '@vkontakte/vk-bridge'
-import type { AppearanceType, VKUpdateConfigData } from '@vkontakte/vk-bridge'
+import { send } from '@vkontakte/vk-bridge'
 import {
   AdaptivityProvider,
   AppRoot,
   ConfigProvider,
   Platform,
-  WebviewType
+  platform
 } from '@vkontakte/vkui'
+import { BREAKPOINTS } from '@vkontakte/vkui/dist/shared/breakpoints'
 
 import { Layout, SnackbarProvider, UserProvider } from '../'
-import { currentPlatform } from '../../utils'
 
 import '@vkontakte/vkui/dist/vkui.css'
 import './app.css'
 
 export const App: FC = () => {
+  // INFO: VKUI не умеет нормально определять платформу вне фрейма
+  // INFO: поэтому если планируете использовать приложение только внутри ВК — этот код можно удалить
   const [platform, setPlatform] = useState<Platform>(currentPlatform)
-  const [appearance, setAppearance] = useState<AppearanceType>()
 
-  useEffect(() => {
-    const updateAppearance = (config: VKUpdateConfigData) => {
-      if (config.appearance) {
-        setAppearance(config.appearance)
-      }
-    }
-
-    send('VKWebAppGetConfig').then((config) => {
-      updateAppearance(config as VKUpdateConfigData)
-
-      subscribe(({ detail: { type, data } }) => {
-        if (type === 'VKWebAppUpdateConfig') {
-          updateAppearance(data as VKUpdateConfigData)
-        }
-      })
-    })
-
-    send('VKWebAppInit')
-  }, [])
-
+  // INFO: Изменяем платформу при изменении размеров окна, аналогично с платформой можно убрать
   useEffect(() => {
     const onResize = () => {
       setPlatform(currentPlatform)
@@ -51,16 +32,14 @@ export const App: FC = () => {
     }
   }, [])
 
+  useEffect(() => {
+    send('VKWebAppInit')
+  }, [])
+
   return (
-    <ConfigProvider
-      platform={platform}
-      appearance={appearance}
-      webviewType={
-        platform === Platform.VKCOM ? WebviewType.INTERNAL : WebviewType.VKAPPS
-      }
-    >
+    <ConfigProvider platform={platform}>
       <AdaptivityProvider>
-        <AppRoot noLegacyClasses>
+        <AppRoot>
           <SnackbarProvider>
             <UserProvider>
               <Layout />
@@ -70,4 +49,15 @@ export const App: FC = () => {
       </AdaptivityProvider>
     </ConfigProvider>
   )
+}
+
+const currentPlatform = () => {
+  if (
+    window.innerWidth >= BREAKPOINTS.TABLET &&
+    window.matchMedia('(orientation: landscape)').matches
+  ) {
+    return Platform.VKCOM
+  }
+
+  return platform() as Platform
 }

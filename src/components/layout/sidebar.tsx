@@ -1,14 +1,17 @@
 import { FC, ReactNode } from 'react'
 
-import { Group, List, SplitCol } from '@vkontakte/vkui'
+import { Group, List, SplitCol, SplitColProps } from '@vkontakte/vkui'
 
-type LayoutSidebarProps = {
+type LayoutSidebarProps = SplitColProps & {
   children: ReactNode
 }
 
-export const LayoutSidebar: FC<LayoutSidebarProps> = ({ children }) => {
+export const LayoutSidebar: FC<LayoutSidebarProps> = ({
+  children,
+  ...props
+}) => {
   return (
-    <SplitCol fixed width="280px" maxWidth="280px">
+    <SplitCol {...props} fixed width={280} maxWidth={280}>
       <Group>
         <List>{children}</List>
       </Group>

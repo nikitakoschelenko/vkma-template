@@ -20,18 +20,18 @@ import {
   NavIdProps,
   Panel,
   PanelHeader,
+  Platform,
   SimpleCell,
   Text,
   Title,
-  VKCOM,
   usePlatform
 } from '@vkontakte/vkui'
 import { classNamesString } from '@vkontakte/vkui/dist/lib/classNames'
 
 import { ErrorSnackbar, SuccessSnackbar } from '../../components'
-
-import styles from './home.module.css'
 import { useSnackbar, useUser } from '../../hooks'
+
+import './home.css'
 
 export const Home: FC<NavIdProps> = (props) => {
   const platform = usePlatform()
@@ -67,16 +67,16 @@ export const Home: FC<NavIdProps> = (props) => {
       <Group>
         <Gradient
           className={classNamesString(
-            styles.gradient,
-            platform === VKCOM && styles.gradientDesktop
+            'Gradient',
+            platform === Platform.VKCOM && 'Gradient__desktop'
           )}
         >
           <Avatar src={user?.photo_100} size={96} />
-          <Title className={styles.gradientTitle} level="2" weight="2">
+          <Title className="Gradient_Title" level="2" weight="2">
             {!user && 'Загрузка...'}
             {user?.first_name} {user?.last_name}
           </Title>
-          <Text weight="regular" className={styles.gradientSecondary}>
+          <Text weight="3" className="Gradient_Subtitle">
             Пользователь
           </Text>
         </Gradient>

@@ -1,4 +1,5 @@
 import { FC } from 'react'
+
 import { back } from '@itznevikat/router'
 import { Alert, NavIdProps } from '@vkontakte/vkui'
 
@@ -8,12 +9,12 @@ export const TestAlert: FC<NavIdProps> = () => {
       actions={[
         {
           title: 'Отмена',
-          autoclose: true,
+          autoClose: true,
           mode: 'cancel'
         },
         {
           title: 'Да',
-          autoclose: true,
+          autoClose: true,
           mode: 'default'
         }
       ]}

@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react'
+import { FC } from 'react'
 
 import {
   Epic,
@@ -8,13 +8,12 @@ import {
   matchPopout,
   useParams
 } from '@itznevikat/router'
-import { Icon28HomeOutline, Icon28InfoOutline } from '@vkontakte/icons'
 import {
   PanelHeader,
+  Platform,
   ScreenSpinner,
   SplitCol,
   SplitLayout,
-  VKCOM,
   usePlatform
 } from '@vkontakte/vkui'
 
@@ -23,20 +22,11 @@ import { TestModalCard } from '../../modals'
 import { TestActionSheet, TestAlert } from '../../popouts'
 import { useSnackbar } from '../../hooks'
 
-import { LayoutButton } from './button'
+import { LayoutNav } from './nav'
 import { LayoutSidebar } from './sidebar'
 import { LayoutTabbar } from './tabbar'
 
-const Nav: FC = () => (
-  <Fragment>
-    <LayoutButton story="/" before={<Icon28HomeOutline />}>
-      Главная
-    </LayoutButton>
-    <LayoutButton story="/info" before={<Icon28InfoOutline />}>
-      О приложении
-    </LayoutButton>
-  </Fragment>
-)
+import './layout.css'
 
 export const Layout: FC = () => {
   const platform = usePlatform()
@@ -46,7 +36,9 @@ export const Layout: FC = () => {
   return (
     <Match fallbackURL="/404">
       <SplitLayout
-        header={platform !== VKCOM && <PanelHeader separator={false} />}
+        header={
+          platform !== Platform.VKCOM && <PanelHeader separator={false} />
+        }
         modal={
           <ModalRoot>
             <TestModalCard nav="test-modal-card" />
@@ -58,22 +50,14 @@ export const Layout: FC = () => {
           <TestActionSheet nav="test-action-sheet" />,
           <TestAlert nav="test-alert" />
         ])}
-        style={{
-          justifyContent: 'center'
-        }}
       >
-        <SplitCol
-          spaced={platform === VKCOM}
-          animate={platform !== VKCOM}
-          width={platform === VKCOM ? '650px' : '100%'}
-          maxWidth={platform === VKCOM ? '650px' : '100%'}
-        >
+        <SplitCol autoSpaced width={650} maxWidth={650}>
           <Epic
             nav="/"
             tabbar={
-              platform !== VKCOM && (
+              platform !== Platform.VKCOM && (
                 <LayoutTabbar>
-                  <Nav />
+                  <LayoutNav mode="tabbarItem" />
                 </LayoutTabbar>
               )
             }
@@ -94,9 +78,9 @@ export const Layout: FC = () => {
           {snackbar}
         </SplitCol>
 
-        {platform === VKCOM && (
+        {platform === Platform.VKCOM && (
           <LayoutSidebar>
-            <Nav />
+            <LayoutNav mode="cell" />
           </LayoutSidebar>
         )}
       </SplitLayout>

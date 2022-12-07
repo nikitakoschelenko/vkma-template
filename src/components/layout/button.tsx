@@ -1,26 +1,27 @@
-import { FC, ReactNode, useCallback } from 'react'
+import { FC, ReactNode } from 'react'
 
 import { push, useDeserialized } from '@itznevikat/router'
-import { Cell, TabbarItem, VKCOM, usePlatform } from '@vkontakte/vkui'
+import { Cell, TabbarItem } from '@vkontakte/vkui'
 
 type LayoutButtonProps = {
+  mode: 'cell' | 'tabbarItem'
   story: string
   before: ReactNode
   children: ReactNode
 }
 
 export const LayoutButton: FC<LayoutButtonProps> = ({
+  mode,
   story,
   before,
   children
 }) => {
-  const platform = usePlatform()
   const { view, panel } = useDeserialized()
 
   const selected = story === view
 
-  const onClick = useCallback(() => {
-    // ± нативное поведение
+  const onClick = () => {
+    // INFO: Похоже на нативное поведение
     if (view === story) {
       if (window.scrollY !== 0) {
         return window.scrollTo({
@@ -34,16 +35,16 @@ export const LayoutButton: FC<LayoutButtonProps> = ({
     }
 
     push(story)
-  }, [view, story])
+  }
 
-  return platform === VKCOM ? (
+  return mode === 'cell' ? (
     <Cell
       key={story}
       before={before}
       style={
         selected
           ? {
-              backgroundColor: 'var(--button_secondary_background)',
+              backgroundColor: 'var(--vkui--color_background_secondary_alpha)',
               borderRadius: 8
             }
           : {}

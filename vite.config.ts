@@ -17,12 +17,6 @@ export default defineConfig({
     outDir: './dist'
   },
 
-  css: {
-    modules: {
-      localsConvention: 'camelCase'
-    }
-  },
-
   server: {
     https: true,
     host: true

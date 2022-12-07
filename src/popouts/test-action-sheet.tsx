@@ -1,4 +1,5 @@
 import { FC } from 'react'
+
 import { back, useActionRef } from '@itznevikat/router'
 import { ActionSheet, ActionSheetItem, NavIdProps } from '@vkontakte/vkui'
 
@@ -9,15 +10,15 @@ export const TestActionSheet: FC<NavIdProps> = () => {
     <ActionSheet
       onClose={back}
       iosCloseItem={
-        <ActionSheetItem autoclose mode="cancel">
+        <ActionSheetItem autoClose mode="cancel">
           Отменить
         </ActionSheetItem>
       }
       toggleRef={actionRef}
     >
-      <ActionSheetItem autoclose>Первое действие</ActionSheetItem>
-      <ActionSheetItem autoclose>Второе действие</ActionSheetItem>
-      <ActionSheetItem autoclose mode="destructive">
+      <ActionSheetItem autoClose>Первое действие</ActionSheetItem>
+      <ActionSheetItem autoClose>Второе действие</ActionSheetItem>
+      <ActionSheetItem autoClose mode="destructive">
         Опасное действие
       </ActionSheetItem>
     </ActionSheet>
