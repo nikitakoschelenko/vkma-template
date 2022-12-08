@@ -16,11 +16,13 @@ import '@vkontakte/vkui/dist/vkui.css'
 import './app.css'
 
 export const App: FC = () => {
-  // INFO: VKUI не умеет нормально определять платформу вне фрейма
-  // INFO: поэтому если планируете использовать приложение только внутри ВК — этот код можно удалить
+  // INFO: VKUI не умеет нормально определять desktop вне фрейма,
+  // INFO: поэтому если планируете использовать приложение только внутри ВК — этот код можно удалить.
+  // INFO: Если определение desktop нужно, но изменять платформу при изменении размеров окна - нет,
+  // INFO: то этот код можно удалить и в ConfigProvider прокинуть platform={currentPlatform()}
   const [platform, setPlatform] = useState<Platform>(currentPlatform)
 
-  // INFO: Изменяем платформу при изменении размеров окна, аналогично с платформой можно убрать
+  // INFO: Изменяем платформу при изменении размеров окна
   useEffect(() => {
     const onResize = () => {
       setPlatform(currentPlatform)
@@ -32,6 +34,7 @@ export const App: FC = () => {
     }
   }, [])
 
+  // INFO: Отсылаем событие инициализации
   useEffect(() => {
     send('VKWebAppInit')
   }, [])

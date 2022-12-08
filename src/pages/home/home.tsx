@@ -50,11 +50,12 @@ export const Home: FC<NavIdProps> = (props) => {
   const openScreenSpinner = async (): Promise<void> => {
     replace('/?popout=screen-spinner')
 
+    // INFO: Блокируем нажатие кнопки назад
     const unblock = block(() => void 0)
 
-    // Загрузка данных
+    // INFO: Загрузка данных
     setTimeout(() => {
-      // Разблокировка
+      // INFO: Разблокировка
       unblock()
       replace('/')
     }, 2000)
